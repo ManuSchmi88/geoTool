@@ -28,3 +28,4 @@ Butt2 = tk.Button(root1,text = "submit", command = submit)
 Butt2.pack()
 #This is somehow needed.
 root1.mainloop()
+
