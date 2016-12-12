@@ -1,7 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """Maybe the imports can go in the class? Is this better? so much I do not know..."""
 import numpy as np
-import matplotlib.pyplot as plt
-    
+import matplotlib
+matplotlib.use("TkAgg")#set to work with tkinter. Could lead to bugs? 
+from matplotlib import pyplot as plt
 
 class RMS(object):
     """create a rammsounding class"""
