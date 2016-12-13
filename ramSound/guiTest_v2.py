@@ -9,6 +9,7 @@ class rmsPlotter:
       self.treeList = []
       self.depthV = []
       self.countV = []
+      self.rms = rs.RMS()
 
    def make_interface(self):
       
@@ -50,8 +51,8 @@ class rmsPlotter:
       self.createVecs()
 
    def createVecs(self):
-      self.depthV.append(float(self.nDep))
-      self.countV.append(int(self.nCou))
+      self.rms.depthVec.append(float(self.nDep))
+      self.rms.countVec.append(int(self.nCou))
 
    def selectAndPrint(self):
       selItem = self.treel.focus()
@@ -59,10 +60,7 @@ class rmsPlotter:
       print('Your selected values are: {}'.format(dictItem['values']))
 
    def plotDepthCounts(self):
-      rms = rs.RMS()
-      rms.depthVec = self.depthV
-      rms.countVec   = self.countV
-      rms.depthCountPlot()
+      self.rms.depthCountPlot()
 
 def main():
     d = rmsPlotter()

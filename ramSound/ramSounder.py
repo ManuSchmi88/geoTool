@@ -17,7 +17,9 @@ class RMS(object):
                 
         self.depth = []
         self.counts = []
-        
+        self.depthVec = []
+        self.countVec = []
+
     def rmsClassify(self):
         """"Asks the user to define which sort of rammsounding they did:
         Light, Medium or Heavy"""
