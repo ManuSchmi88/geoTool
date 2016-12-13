@@ -2,7 +2,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 import ramSounder as rs
 
-class Test:
+class rmsPlotter:
    def __init__(self):
       self.wi = tk.Tk()
       self.make_interface()
@@ -50,7 +50,7 @@ class Test:
       self.createVecs()
 
    def createVecs(self):
-      self.depthV.append(int(self.nDep))
+      self.depthV.append(float(self.nDep))
       self.countV.append(int(self.nCou))
 
    def selectAndPrint(self):
@@ -65,7 +65,7 @@ class Test:
       rms.depthCountPlot()
 
 def main():
-    d = Test()
+    d = rmsPlotter()
     d.wi.mainloop()
 if __name__ == "__main__":
     main()
