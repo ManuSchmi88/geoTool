@@ -5,19 +5,40 @@ class Test:
    def __init__(self):
       self.wi = tk.Tk()
       self.make_interface()
+      self.treeList = []
 
    def make_interface(self):
-      self.wi.title('RMS Plotter')
-      self.wi.config(background='lavender')
       
-      tk.Label(self.wi, text = 'Hello').grid(row=0)
-      tk.Label(self.wi, text = 'Sexy').grid(row=1)
+      #set up title 
+      self.wi.title('RMS Plotter')
+      self.wi.config(background='white')
+    
+      #Set up tree-viewtable for depths and counts
+      header = ['Depth' , 'Counts']
+      self.treel = ttk.Treeview(columns = header, show = 'headings')
+      self.treel.grid(row = 1, column = 0)
+      for col in header:
+          self.treel.heading(col, text=col.title())
 
+      #Set up Labels for Entry-Fields for Depth and Counts
+      tk.Label(self.wi, text = 'Rammsondier Plotter').grid(row=0 , column = 0)
+      tk.Label(self.wi, text = 'Depth').grid(row=2, column=1)
+      tk.Label(self.wi, text = 'Counts').grid(row=3,column=1)
+
+      #Set up Entry-Fields for Depth and Counts
       self.e1 = tk.Entry(self.wi)
       self.e2 = tk.Entry(self.wi)
+      self.e1.grid(row = 2, column = 2)
+      self.e2.grid(row = 3, column = 2)
 
-      self.e1.grid(row = 0, column = 1)
-      self.e2.grid(row = 1, column = 1)
+      #set up "submit" button
+      self.b1 = tk.Button(self.wi, text = 'Enter',
+              command = self.submitDepthCounts).grid(row = 4, column=2)
+
+   def submitDepthCounts(self):
+      self.nDep = self.e1.get()
+      self.nCou = self.e2.get()
+
 
 def main():
     d = Test()
