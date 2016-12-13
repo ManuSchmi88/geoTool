@@ -33,12 +33,21 @@ class Test:
 
       #set up "submit" button
       self.b1 = tk.Button(self.wi, text = 'Enter',
-              command = self.submitDepthCounts).grid(row = 4, column=2)
+              command = self.submitDepthCounts).grid(row = 4, column = 2)
+
+      #set up select button for bugfixing
+      self.b2 = tk.Button(self.wi, text = 'Select',
+              command = self.selectAndPrint).grid(row = 5, column = 2)
 
    def submitDepthCounts(self):
       self.nDep = self.e1.get()
       self.nCou = self.e2.get()
+      self.treel.insert('','end',values = (self.nDep,self.nCou))
 
+   def selectAndPrint(self):
+      selItem = self.treel.focus()
+      dictItem = self.treel.item(selItem)
+      print('Your selected values are: {}'.format(dictItem['values']))
 
 def main():
     d = Test()
