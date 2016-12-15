@@ -15,7 +15,7 @@ class rmsPlotter:
       
       #set up title 
       self.wi.title('RMS Plotter')
-      self.wi.config(background='white')
+      self.wi.config(background='violet')
     
       #Set up tree-viewtable for depths and counts
       header = ['Depth' , 'Counts']
@@ -61,6 +61,8 @@ class rmsPlotter:
 
    def plotDepthCounts(self):
       self.rms.depthCountPlot()
+
+
 
 def main():
     d = rmsPlotter()
