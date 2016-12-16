@@ -74,6 +74,7 @@ class RMS(object):
                 try:
                     inputString = "Counts at depth {}".format(self.depthVec[i])
                     tempCount.append(int(input("Counts at depth {:.2f}m: ".format(i))))
+                    print("")
                 except ValueError:
                     print("This is not a number you idiot. Try again!")
                 else:
@@ -101,7 +102,7 @@ class RMS(object):
     def defGWLevel(self):
         """let user define a groundwater level."""
         while True:
-            gwF = str(input("Did you measure Groundwaterlevel?"))
+            gwF = str(input("Did you measure Groundwaterlevel? "))
             if gwF == "y":
                 inputStr = "Specify Groundwater level: "
                 try:
