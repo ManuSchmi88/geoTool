@@ -8,13 +8,17 @@ def calcBulkDensity(rmsClass, rmsDepthVec, rmsCountVec):
         """uses the equation after "Witt - Grundbau Taschenbuch" """
 
         #Dictionary which holds different paramters for RMS type
-        paramDict = {'light':[0.25, 0.1] , 'medium':[0.35, 0.2] , 'heavy':[0.4, 0.4]}
+        paramDict_Sa_OGW = {'light':[0.15, 0.26], 'heavy':[0.10, 0.435]}
+        paramDict_Sa_UGW = {'light':[0.21, 0.23], 'heavy':[0.23, 0.380]}
+        paramDict_SaGr_OGW = {'heavy':[-0.14, 0.550]}
+        #paramDict_Si_OGW = {''}
+
         a1 = paramDict[rmsClass][0]
         a2 = paramDict[rmsClass][1]
         depthVec = rmsDepthVec
         Id = a1 + a2 * np.log(rmsCountVec)
         return Id
-   
+
 def plotBulkDensity(bulkDensity, depthVec):
 
         """Create a nice plot of depth vs. counts"""

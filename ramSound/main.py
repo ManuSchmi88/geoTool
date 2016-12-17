@@ -9,7 +9,6 @@ def main():
     rms1.rmsClassify()
     rms1.userInputBase()
     rms1.userInputCounts()
-    rms1.defGWLevel()
     rms1.depthCountPlot()
     rms1.bulkDensity()
 

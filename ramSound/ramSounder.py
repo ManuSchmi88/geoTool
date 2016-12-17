@@ -123,6 +123,7 @@ class RMS(object):
         while True:
             bdf = str(input("Do you want to calculate bulk density of your profile (y/n) ?"))
             if bdf == "y":
+                self.defGWLevel()
                 print('Ok. Calculating bulk density...')
                 self.bd = sc.calcBulkDensity(self.rmsclass, self.depthVec,
                         self.countVec)
