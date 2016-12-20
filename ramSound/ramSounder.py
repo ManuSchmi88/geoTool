@@ -127,8 +127,8 @@ class RMS(object):
                 #Call Groundwater level function
                 self.defGWLevel()
                 print('Ok. Calculating bulk density...')
-                self.bd = sc.calcBulkDensity(self.rmsclass, self.depthVec,
-                        self.countVec)
+                self.bd = sc.calcBulkDensity(self.rmsclass, self.st, self.depthVec,
+                        self.countVec, self.gwLevel)
                 break
             elif bdf == "n":
                 print('Ok, I just sit here and do nothing.!')

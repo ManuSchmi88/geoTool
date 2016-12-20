@@ -17,11 +17,11 @@ def calcBulkDensity(rmsClass, rmsSoilType ,rmsDepthVec, rmsCountVec, rmsGw):
                   'GrOGW' : paramDict_SaGr_OGW}
     #Create a combined_string which determines the dictionary
     #This string will combine gW-level and soiltype
-    if rmsSoilType == "Sa":
-        for d < rmsGW:
-            a1 = masterDict['SaOGW'][rmsClass][0]
-            a2 = masterDict['SaOGW'][rmsClass][1]
-            
+
+    #ROUGH: USE GW LEVEL IN DEPTH ARRAY TO GET INDEX FOR COUNT ARRAY.
+    #THEN CALCULATE Id FOR ALL VALUES UNTIL THAT INDEX AND THEN SWITCH
+    #TO ANOTHER SET OF a1 AND a2. THIS CANT BE SO HARD DAMNIT.
+
     a1 = paramDict[paramD][0]
     a2 = paramDict[rmsClass][1]
     depthVec = rmsDepthVec
