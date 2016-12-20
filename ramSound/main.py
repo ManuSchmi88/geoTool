@@ -7,6 +7,7 @@ def main():
 
     rms1 = rs.RMS()
     rms1.rmsClassify()
+    rms1.chooseSoilType()
     rms1.userInputBase()
     rms1.userInputCounts()
     rms1.depthCountPlot()

@@ -152,11 +152,15 @@ class RMS(object):
         """Defines soil type for later use in bulk-density calculationg"""
 
         while True:
-            self.st = str(input("Define the soil-type. Type 'S' for sandy or"
-                                + " 'G' for gravely."))
-            if self.st == "Sa":
+            inputST = str(input("Define the soil-type. Type 'S' for sandy or"
+                                + " 'G' for gravely." ))
+            if inputST == "S":
                 print("Ok, we have sandy soil!")
-            elif self.st == "Gr":
+                self.st = "Sa"
+                break
+            elif inputST == "G":
                 print("Ok, we have gravely soil!")
+                self.st = "Gr"
+                break
             else:
                 print("I did not understand that.")
