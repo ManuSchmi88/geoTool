@@ -4,7 +4,7 @@
 """Maybe the imports can go in the class? Is this better? so much I do not know..."""
 import numpy as np
 import matplotlib
-matplotlib.use("TkAgg")#set to work with tkinter. Could lead to bugs?
+matplotlib.use("TkAgg") #set to work with tkinter. Could lead to bugs?
 from matplotlib import pyplot as plt
 import soilCalc as sc
 
@@ -98,6 +98,7 @@ class RMS(object):
         #Shows Grid
         plt.grid()
         plt.show()
+        plt.close()
 
     def defGWLevel(self):
         """let user define a groundwater level."""
@@ -121,8 +122,9 @@ class RMS(object):
     def bulkDensity(self):
         """call soilCalc Module to add values for bulk density"""
         while True:
-            bdf = str(input("Do you want to calculate bulk density of your profile (y/n) ?"))
+            bdf = str(input("Do you want to calculate bulk density of your profile (y/n) ? "))
             if bdf == "y":
+                #Call Groundwater level function
                 self.defGWLevel()
                 print('Ok. Calculating bulk density...')
                 self.bd = sc.calcBulkDensity(self.rmsclass, self.depthVec,
@@ -133,10 +135,10 @@ class RMS(object):
                 break
             else:
                 print('I did not understand that')
-                break
+
         if bdf == "y":
             while True:
-                bdpF = str(input('Do you want to make a plot of the bulk density distribution (y/n) ?'))
+                bdpF = str(input('Do you want to make a plot of the bulk density distribution (y/n) ? '))
                 if bdpF == "y":
                     sc.plotBulkDensity(self.bd, self.depthVec)
                     break
@@ -145,3 +147,16 @@ class RMS(object):
                     break
                 else:
                     print('I did not unterstand that')
+
+    def chooseSoilType(self):
+        """Defines soil type for later use in bulk-density calculationg"""
+
+        while True:
+            self.st = str(input("Define the soil-type. Type 'S' for sandy or"
+                                + " 'G' for gravely."))
+            if self.st == "Sa":
+                print("Ok, we have sandy soil!")
+            elif self.st == "Gr":
+                print("Ok, we have gravely soil!")
+            else:
+                print("I did not understand that.")
